@@ -27,14 +27,11 @@ class ProductManager {
       console.log("Todos los campos son requeridos.");
       return;
     }
-
-
     //Validamos el codigo de producto no exista antes de continuar...
     if (this.getProductByCode(code)) {
       console.log("El código del producto ya existe.");
       return;
     }
-
     const product = {
       id: this.productIdCounter++,
       title,
@@ -57,15 +54,12 @@ class ProductManager {
   getProductById(id) {
     return this.products.find((product) => product.id === id);
   }
-
   getProductByCode(code) {
     return this.products.some((product) => product.code === code);
   }
-
-
 }
 
-module.exports = ProductManager;
+module.exports = ProductManager; // si no exportamos da error!!
 
 
 
