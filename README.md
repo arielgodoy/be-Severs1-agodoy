@@ -15,7 +15,7 @@ ruta ‘/products/:pid’, la cual debe recibir por req.params el pid (product I
 tests
 
 // 2023-11-20
-// generamos un ID compuesto por AAAAMMDDXXXX donde AAAA ES EL AÑO,MM ES EL MES, DD ES EL DIA Y XXX ES EL CORRELATIVO DEL ID
+// generamos un ID numerico compuesto por AAAA + MM + DD + XXXX donde AAAA ES EL AÑO,MM ES EL MES, DD ES EL DIA Y XXX ES EL CORRELATIVO DEL ID
 
 http://localhost:8080/products
 http://localhost:8080/products/?limit=2
