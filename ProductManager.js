@@ -56,15 +56,11 @@ class ProductManager {
   getProductByCode(code) {
     return this.products.some((product) => product.code === code);
   }
-
-  
-
-
   generaIdcompuesto() {
     // generamos un ID compuesto por AAAAMMDDXXXX donde AAAA ES EL AÑO,MM ES EL MES, DD ES EL DIA Y XXX ES EL CORRELATIVO DEL ID
     const now = new Date();
     const year = now.getFullYear();
-    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const month = String(now.getMonth() + 1).padStart(2, '0');// mes parte de CERO lindo JS
     const day = String(now.getDate()).padStart(2, '0');
     const id = String(this.products.length + 1).padStart(4, '0');
     return `${year}${month}${day}${id}`;

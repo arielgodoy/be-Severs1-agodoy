@@ -13,6 +13,10 @@ Si se recibe un límite, sólo devolver el número de productos solicitados
 
 ruta ‘/products/:pid’, la cual debe recibir por req.params el pid (product Id), y devolver sólo el producto solicitado, en lugar de todos los productos. 
 tests
+
+// 2023-11-20
+// generamos un ID compuesto por AAAAMMDDXXXX donde AAAA ES EL AÑO,MM ES EL MES, DD ES EL DIA Y XXX ES EL CORRELATIVO DEL ID
+
 http://localhost:8080/products
 http://localhost:8080/products/?limit=2
 http://localhost:8080/products/5
