@@ -3,8 +3,7 @@ const fs = require('fs');
 class ProductManager {
   constructor(path) {
     this.path = path;
-    this.products = [];
-    this.productIdCounter = 1;
+    this.products = [];    
     this.readFromFile();
   }
 
@@ -33,7 +32,7 @@ class ProductManager {
       return;
     }
     const product = {
-      id: this.productIdCounter++,
+      id: this.generaIdcompuesto(),
       title,
       description,
       price,
@@ -57,7 +56,28 @@ class ProductManager {
   getProductByCode(code) {
     return this.products.some((product) => product.code === code);
   }
+
+  
+
+
+  generaIdcompuesto() {
+    // generamos un ID compuesto por AAAAMMDDXXXX donde AAAA ES EL AÑO,MM ES EL MES, DD ES EL DIA Y XXX ES EL CORRELATIVO DEL ID
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const id = String(this.products.length + 1).padStart(4, '0');
+    return `${year}${month}${day}${id}`;
+  }
 }
+
+// const productManager = new ProductManager('json1.json');
+// console.log('Lista de productos:', productManager.getProducts());
+// productManager.addProduct('Producto 1', 'Descripción 1', 10.99, 'imagen1.jpg', 'CODE14', 100);
+// productManager.addProduct('Producto 2', 'Descripción 2', 19.99, 'imagen2.jpg', 'CODE15', 50);
+// productManager.addProduct('Producto 3', 'Descripción 3', 5.99, 'imagen3.jpg', 'CODE16', 200);
+// console.log('Lista de productos:', productManager.getProducts());
+
 
 module.exports = ProductManager; // si no exportamos da error!!
 
