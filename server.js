@@ -3,7 +3,7 @@ const ProductManager = require("./ProductManager");
 const fs = require('fs').promises; // Utilizamos fs.promises para operaciones de archivos asíncronas
 const app = express();
 app.use(express.urlencoded({ extended: true }));
-const productManager = new ProductManager("json1.json");
+const productManager = new ProductManager("json1.json");// instanceamos con ewl json1.json de prueba
 
 app.get('/products', async (req, res) => {
     const limit = parseInt(req.query.limit);
